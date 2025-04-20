@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="manifest" href="/manifest.json">
+  <link rel="apple-touch-icon" href="/src/icons/ic_launcher.png">
+  <meta name="theme-color" content="#2c3e50">
+  <link rel="shortcut icon" href="/src/icons/appstore.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Livros</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header><h1>Biblioteca Virtual</h1></header>
+
+  <main>
+    <button id="addBookBtn">Adicionar Livro</button>
+    <input type="text" id="searchInput" placeholder="Buscar livros...">
+
+    <section id="bookList">
+      <!-- Exemplos de livros, podem ser gerados via JS -->
+      <div class="book-item">
+        <div class="book-visual">
+          <h2>Livro Exemplo</h2>
+          <img src="caminho-da-imagem.jpg" alt="Livro Exemplo" />
+        </div>
+      </div>
+    </section>
+    <div id="pagination"></div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

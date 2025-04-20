@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="shortcut icon" href="/src/icons/appstore.png" type="image/png">
+  <title>Detalhes do Livro</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Detalhes do Livro</h1>
+  </header>
+
+  <div class="button-center">
+    <button class="back-button" onclick="window.location.href='index.html'">← Voltar</button>
+  </div>
+
+  <main id="bookDetails"></main>
+
+  <section id="comments">
+    <h3>Comentários</h3>
+    <form id="commentForm">
+      <textarea id="commentInput" placeholder="Adicione seu comentário"></textarea>
+      <button type="submit">Enviar Comentário</button>
+    </form>
+    <div id="commentList"></div>
+  </section>
+
+  <script>
+    const API_URL = 'http://localhost:3333/api/books'; // Atualize conforme necessário para produção
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+
+    const bookDetails = document.getElementById('bookDetails');
+    const commentForm = document.getElementById('commentForm');
+    const commentList = document.getElementById('commentList');
+
+    // Mostrar detalhes do livro
+    fetch(`${API_URL}/${id}`)
+      .then(res => res.json())
+      .then(book => {
+        bookDetails.innerHTML = `
+          <div class="book-visual">
+            <h2>${book.title}</h2>
+            <img src="${book.image}" alt="${book.title}" />
+            <p><strong>Autor:</strong> ${book.author}</p>
+            <p><strong>Descrição:</strong> ${book.description}</p>
+            <p><strong>Lançamento:</strong> ${new Date(book.releaseDate).toLocaleDateString()}</p>
+          </div>
+        `;
+      })
+      .catch(err => console.error('Erro ao carregar detalhes do livro:', err));
+
+    // Carregar comentários
+    function loadComments() {
+      fetch(`${API_URL}/${id}`)
+        .then(res => res.json())
+        .then(book => {
+          commentList.innerHTML = '';
+          book.comments.forEach(comment => {
+            const div = document.createElement('div');
+            div.className = 'comment';
+            div.innerHTML = `
+              <p><strong>${new Date(comment.date).toLocaleDateString()}:</strong> ${comment.text}</p>
+              <button onclick="editComment('${comment._id}')">Editar</button>
+              <button onclick="deleteComment('${comment._id}')">Excluir</button>
+            `;
+            commentList.appendChild(div);
+          });
+        })
+        .catch(err => console.error('Erro ao carregar comentários:', err));
+    }
+
+    // Adicionar comentário
+    commentForm.onsubmit = (e) => {
+      e.preventDefault();
+      const text = document.getElementById('commentInput').value.trim();
+      if (!text) return;
+
+      fetch(`${API_URL}/${id}/comments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+      })
+        .then(() => {
+          document.getElementById('commentInput').value = '';
+          loadComments();
+        })
+        .catch(err => console.error('Erro ao adicionar comentário:', err));
+    };
+
+    // Editar comentário
+    window.editComment = function(commentId) {
+      const newText = prompt('Digite o novo texto do comentário:');
+      if (!newText) return;
+
+      fetch(`${API_URL}/${id}/comments/${commentId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text: newText }),
+      })
+        .then(() => loadComments())
+        .catch(err => console.error('Erro ao editar comentário:', err));
+    };
+
+    // Excluir comentário
+    window.deleteComment = function(commentId) {
+      if (!confirm('Deseja excluir este comentário?')) return;
+
+      fetch(`${API_URL}/${id}/comments/${commentId}`, {
+        method: 'DELETE',
+      })
+        .then(() => loadComments())
+        .catch(err => console.error('Erro ao excluir comentário:', err));
+    };
+
+    // Carregar comentários ao abrir a página
+    loadComments();
+  </script>
+</body>
+</html>

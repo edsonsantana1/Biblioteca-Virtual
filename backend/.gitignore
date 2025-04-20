@@ -1,0 +1,8 @@
+# Ignorar dependências do Node.js
+node_modules/
+**/node_modules/
+
+# Outros arquivos que não precisam ir pro GitHub
+.env
+dist/
+.DS_Store

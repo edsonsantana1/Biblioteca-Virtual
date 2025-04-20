@@ -1,0 +1,445 @@
+/* Define uma fonte padrão e remove margens/paddings */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+  
+/* Cabeçalho do site */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Conteúdo principal centralizado */
+main {
+    padding: 1rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* Estilo geral para botões */
+button {
+    display: block;
+    margin: 1rem auto;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Campo de busca */
+#searchInput {
+    display: block;
+    margin: 1rem auto;
+    padding: 10px;
+    width: 90%;
+    max-width: 400px;
+}
+
+/* Container do formulário */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    margin: auto; /* Centraliza o formulário */
+    padding: 1rem; /* Espaçamento interno */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 8px; /* Bordas arredondadas */
+    background-color: #f9f9f9;
+    box-sizing: border-box; /* Inclui preenchimento dentro da largura */
+}
+
+/* Campos do formulário */
+.form-container input,
+.form-container textarea {
+    width: 100%; /* Garante que o elemento ocupe toda a largura disponível */
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Inclui preenchimento dentro da largura */
+}
+
+/* Botão de envio do formulário */
+.form-container button {
+    width: 100%; /* Garante que o botão respeite as margens laterais */
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-container button:hover {
+    background-color: #1a252f;
+}
+
+/* Ajustes para telas menores (modo aplicativo) */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 1rem; /* Espaçamento interno uniforme */
+        width: 90%; /* Reduz a largura para respeitar as bordas */
+        margin: auto; /* Centraliza o formulário na tela */
+    }
+
+    .form-container input,
+    .form-container textarea {
+        width: 100%; /* Mantém uniformidade nos campos */
+    }
+
+    .form-container button {
+        width: 100%; /* Ajusta o botão para respeitar a largura do formulário */
+    }
+}
+
+/* Centraliza o botão de voltar */
+.button-center {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Estilo do botão "Voltar" */
+.back-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    max-width: 200px; /* Limita a largura máxima do botão */
+    width: auto;     /* Adapta o tamanho ao conteúdo */
+}
+
+.back-button:hover {
+    background-color: #c0392b;
+}
+
+@media (max-width: 600px) {
+    .back-button {
+        font-size: 0.9rem; /* Tamanho de texto um pouco menor no celular */
+        padding: 8px 15px; /* Proporções ajustadas */
+        max-width: 150px;  /* Reduz o tamanho do botão no celular */
+    }
+}
+
+/* Responsividade aprimorada */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .form-container {
+        width: 100%;
+        padding: 1rem;
+    }
+
+    .book-item img {
+        max-width: 150px; /* Imagens menores em telas pequenas */
+    }
+}
+
+/* Centraliza título e imagem na página de detalhes */
+.book-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.book-visual h2 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.book-visual img {
+    max-width: 200px; /* Ajuste para deixar as imagens menores */
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+/* Estilo para a lista de livros na página inicial */
+.book-item {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+/* Uniformização das imagens na página inicial */
+.book-item img {
+    max-width: 200px; /* Tamanho uniforme para todas as imagens */
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Bordas arredondadas */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.book-item h3 {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Botões de paginação */
+/* Botões de paginação */
+#pagination {
+    text-align: center; /* Centraliza os botões no contêiner */
+    margin-top: 1rem;   /* Adiciona um espaçamento acima dos botões */
+}
+
+#pagination button {
+    display: inline-block; /* Define como bloco em linha */
+    margin: 0.5rem;        /* Espaçamento entre os botões */
+    padding: 10px 15px;    /* Ajuste do preenchimento interno */
+    font-size: 1rem;       /* Tamanho da fonte */
+    cursor: pointer;
+    border: 1px solid #ccc; /* Borda leve */
+    border-radius: 4px;    /* Bordas arredondadas */
+    background-color: #f0f0f0; /* Cor de fundo padrão */
+    transition: background-color 0.3s;
+}
+
+#pagination button.active {
+    background-color: #2c3e50; /* Cor do botão ativo */
+    color: white;             /* Texto branco */
+}
+
+#pagination button:hover {
+    background-color: #ddd; /* Cor de fundo ao passar o mouse */
+}
+
+@media (max-width: 600px) {
+    #pagination {
+        text-align: center; /* Mantém os botões centralizados no celular */
+    }
+
+    #pagination button {
+        font-size: 0.9rem; /* Reduz o tamanho do texto */
+        padding: 6px 10px; /* Ajusta o espaçamento interno */
+        display: inline-block; /* Botões em linha */
+        max-width: 80px; /* Limita a largura máxima dos botões */
+        width: auto; /* Faz os botões se ajustarem ao tamanho do conteúdo */
+    }
+}
+
+
+#pagination button {
+    display: inline-block; /* Define como bloco em linha */
+    margin: 0.5rem;        /* Espaçamento entre os botões */
+    padding: 10px 15px;    /* Ajuste do preenchimento interno */
+    font-size: 1rem;       /* Tamanho da fonte */
+    cursor: pointer;
+    border: 1px solid #ccc; /* Borda leve */
+    border-radius: 4px;    /* Bordas arredondadas */
+    background-color: #f0f0f0; /* Cor de fundo padrão */
+    transition: background-color 0.3s;
+}
+
+#pagination button.active {
+    background-color: #2c3e50; /* Cor do botão ativo */
+    color: white;             /* Texto branco */
+}
+
+#pagination button:hover {
+    background-color: #ddd; /* Cor de fundo ao passar o mouse */
+}
+
+@media (max-width: 600px) {
+    #pagination {
+        text-align: center; /* Mantém os botões centralizados no celular */
+    }
+
+    #pagination button {
+        font-size: 0.9rem; /* Tamanho menor para telas menores */
+        padding: 8px 10px; /* Ajusta proporções no celular */
+        display: inline-block; /* Garante que não ocupem a largura total */
+        max-width: 100px; /* Limita a largura máxima dos botões */
+    }
+}
+
+/* Estilo para a seção de comentários */
+#comments {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+#comments h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+#commentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#commentInput {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+#commentForm button {
+    align-self: flex-start;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#commentForm button:hover {
+    background-color: #1a252f;
+}
+
+.comment {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment button {
+    margin-right: 0.5rem;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.comment button:first-child {
+    background-color: #f1c40f; /* Amarelo para o botão Editar */
+    color: white;
+}
+
+.comment button:first-child:hover {
+    background-color: #d4ac0d;
+}
+
+.comment button:last-child {
+    background-color: #e74c3c; /* Vermelho para o botão Apagar */
+    color: white;
+}
+
+.comment button:last-child:hover {
+    background-color: #c0392b;
+}
+
+/* Estilo para a seção de comentários */
+#comments {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-top: 1px solid #ddd;
+}
+
+#comments h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+#commentForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#commentInput {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+#commentForm button {
+    align-self: flex-start;
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#commentForm button:hover {
+    background-color: #1a252f;
+}
+
+.comment {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment button {
+    margin-right: 0.5rem;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.comment button:first-child {
+    background-color: #f1c40f; /* Amarelo para o botão Editar */
+    color: white;
+}
+
+.comment button:first-child:hover {
+    background-color: #d4ac0d;
+}
+
+.comment button:last-child {
+    background-color: #e74c3c; /* Vermelho para o botão Apagar */
+    color: white;
+}
+
+.comment button:last-child:hover {
+    background-color: #c0392b;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('./fonts/OpenSans-Regular.ttf') format('truetype');
+  }
+  
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  
