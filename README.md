@@ -5,7 +5,7 @@ A **Biblioteca Virtual** é uma plataforma intuitiva que permite gerenciar livro
 
 O aplicativo pode ser executado localmente e foi projetado para ser transformado em um **Progressive Web App (PWA)**, permitindo que os usuários instalem a aplicação em seus dispositivos.
 
-- 🔗 **Frontend (Netlify)**: [https://gleaming-cocada-9a3c96.netlify.app/](https://gleaming-cocada-9a3c96.netlify.app/)
+- 🔗 **Frontend (Netlify)**: [https://bibliote-vitual.netlify.app/](https://bibliote-vitual.netlify.app/)
 - 🔗 **Backend (Render)**: [https://biblioteca-virtual-3z12.onrender.com/](https://biblioteca-virtual-3z12.onrender.com/)
 
 ## Principais Funcionalidades
@@ -23,10 +23,9 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 - **MongoDB**: Serviço de banco de dados utilizado.
 
 ## Inicia servidor
-- `node server`
+- node server
 
 ## Configuração do Backend
 1. Clone este repositório:
    ```bash
    git clone https://github.com/seu-usuario/biblioteca-virtual.git
-   
