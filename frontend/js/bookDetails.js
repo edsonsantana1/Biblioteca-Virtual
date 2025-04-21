@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
-const API_URL = 'http://localhost:3333/api/books';
+const API_URL = 'https://biblioteca-virtual-3z12.onrender.com/api/books';
 
 const bookDetails = document.getElementById('bookDetails');
 const commentForm = document.getElementById('commentForm');

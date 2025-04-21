@@ -6,7 +6,7 @@ let currentPage = 1;
 let currentSearch = '';
 
 // Use URL absoluta para integração com o backend
-const API_URL = 'http://localhost:3333/api/books'; // Ajuste para corresponder ao backend
+const API_URL = 'https://biblioteca-virtual-3z12.onrender.com/api/books';
 
 function fetchBooks(page = 1, search = '') {
   // Busca livros com paginação e filtro por busca
